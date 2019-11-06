@@ -1,0 +1,32 @@
+{
+  "name": "phpmicroservice/regreg",
+  "type": "project",
+  "keywords": [
+    "swoole",
+    "phalcon",
+    "microservice",
+    "websockect",
+    "tcp"
+  ],
+  "description": "注册工具",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dongasai",
+      "email": "1514582970@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "phpmicroservice/pms-frame": "*"
+  },
+  "require-dev": {
+    "eaglewu/swoole-ide-helper": "dev-master@dev",
+    "phalcon/ide-stubs": "v3.4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "regreg\\": "src/"
+    }
+  }
+}
