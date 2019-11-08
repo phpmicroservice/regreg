@@ -69,6 +69,8 @@ class Register
                 # 我们需要的数据
                 $this->reg_status = 1;
             }
+        }else{
+            $this->register_client->connect();
         }
 
 
