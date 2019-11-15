@@ -69,6 +69,12 @@ class Register
                 # 我们需要的数据
                 $this->reg_status = 1;
             }
+            if($data===false){
+                Output::info($this->register_client->swoole_client->errCode, 'ping32');
+                if($this->register_client->swoole_client->errCode == 32){
+                    $this->register_client->connect();
+                }
+            }
         }else{
             $this->register_client->connect();
         }
