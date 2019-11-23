@@ -1,6 +1,6 @@
 {
   "name": "phpmicroservice/regreg",
-  "type": "project",
+  "type": "library",
   "keywords": [
     "swoole",
     "phalcon",
