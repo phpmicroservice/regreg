@@ -43,7 +43,7 @@ class Register
      */
     public function ping()
     {
-        Output::info($this->register_client->isConnected(), 'ping');
+        Output::debug($this->register_client->isConnected(), 'ping');
         if ($this->register_client->isConnected()) {
             $data = [
                 'name' => strtolower(SERVICE_NAME),
@@ -53,23 +53,24 @@ class Register
             ];
             Output::info($data, 'ping');
             try{
-                $data =new Data2();
+                $data56 =new Data2();
                 if ($this->reg_status) {
                     # 注册完毕进行ping
-                    $data = $this->register_client->send_recv($data->request(
+                    $data = $this->register_client->send_recv($data56->request(
                         'register', '/service/ping', $data
                     ));
                     # 正确的
                 } else {
                     # 没有注册完毕,先注册
-                    $data = $this->register_client->send_recv($data->request(
+                    $data = $this->register_client->send_recv($data56->request(
                         'register', '/service/reg', $data
                     ));
                 }
             }catch (\Throwable $exception){
+                Output::error($exception->getMessage(), 'reg-error');
                 $data =[];
             }
-
+            Output::debug($data, 'ping72');
             # 正确的
             if ($data['t'] == '/service/reg') {
                 # 我们需要的数据
