@@ -4,6 +4,7 @@ namespace regreg;
 
 use Phalcon\Events\Event;
 use pms\Output;
+use spms\Data2;
 
 /**
  * 注册服务
@@ -52,13 +53,18 @@ class Register
             ];
             Output::info($data, 'ping');
             try{
+                $data =new Data2();
                 if ($this->reg_status) {
                     # 注册完毕进行ping
-                    $data = $this->register_client->ask_recv('register', '/service/ping', $data);
+                    $data = $this->register_client->send_recv($data->request(
+                        'register', '/service/ping', $data
+                    ));
                     # 正确的
                 } else {
                     # 没有注册完毕,先注册
-                    $data = $this->register_client->ask_recv('register', '/service/reg', $data);
+                    $data = $this->register_client->send_recv($data->request(
+                        'register', '/service/reg', $data
+                    ));
                 }
             }catch (\Throwable $exception){
                 $data =[];

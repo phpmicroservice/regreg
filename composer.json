@@ -18,7 +18,8 @@
   ],
   "require": {
     "php": ">=7.2",
-    "phpmicroservice/pms-frame": "*"
+    "phpmicroservice/pms-frame": "*",
+    "phpmicroservice/spms": "master@dev"
   },
   "require-dev": {
     "eaglewu/swoole-ide-helper": "dev-master@dev",
